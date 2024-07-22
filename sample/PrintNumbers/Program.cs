@@ -6,7 +6,7 @@ using PrintNumbersLib;
 int upperBound = args.Length > 0 && int.TryParse(args[0], out upperBound) ? upperBound : 100;
 
 // Retrieve the enumerable sequence of formatted values for the range 1 .. upperBound.
-var values = PrintNumbers.All(upperBound);
+var values = PrintNumbers.FormatSequence(upperBound);
 
 // Print each value on its own line.
 foreach (var value in values)

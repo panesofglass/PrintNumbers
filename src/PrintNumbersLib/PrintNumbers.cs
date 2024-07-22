@@ -7,8 +7,8 @@
         /// </summary>
         /// <param name="upperBound">The number to which to enumerate values. (Defaults to 100)</param>
         /// <returns>The enumerable sequence of formatted values.</returns>
-        public static IEnumerable<string> All(int upperBound = 100) =>
-            Enumerable.Range(1, upperBound).Select(num => Format(num));
+        public static IEnumerable<string> FormatSequence(int upperBound = 100) =>
+            Enumerable.Range(1, upperBound).Select(Format);
 
         /// <summary>
         /// Formats an individual integer value into a string representation.
