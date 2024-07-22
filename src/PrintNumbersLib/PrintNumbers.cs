@@ -1,30 +1,28 @@
 ﻿namespace PrintNumbersLib
 {
-    public class PrintNumbers
+    public static class PrintNumbers
     {
-        public static IEnumerable<string> All(int upperBound = 100)
-        {
-            return Enumerable.Range(1, upperBound).Select(num => Format(num));
-        }
+        /// <summary>
+        /// Returns an enumerable sequence of formatted values from 1 to <paramref name="upperBound" />.
+        /// </summary>
+        /// <param name="upperBound">The number to which to enumerate values. (Defaults to 100)</param>
+        /// <returns>The enumerable sequence of formatted values.</returns>
+        public static IEnumerable<string> All(int upperBound = 100) =>
+            Enumerable.Range(1, upperBound).Select(num => Format(num));
 
-        public static string Format(int number)
-        {
-            if (number % 3 == 0 && number % 5 == 0)
+        /// <summary>
+        /// Formats an individual integer value into a string representation.
+        /// </summary>
+        /// <param name="number">The number to format.</param>
+        /// <returns>The formatted number.</returns>
+        internal static string Format(int number) =>
+            (number % 3, number % 5) switch
             {
-                return "RyanRiley";
-            }
-            else if (number % 3 == 0)
-            {
-                return "Ryan";
-            }
-            else if (number % 5 == 0)
-            {
-                return "Riley";
-            }
-            else
-            {
-                return number.ToString();
-            }
-        }
+                (0, 0) => "RyanRiley",
+                (0, _) => "Ryan",
+                (_, 0) => "Riley",
+                _ => number.ToString(),
+            };
     }
 }
+

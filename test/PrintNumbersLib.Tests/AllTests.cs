@@ -5,7 +5,7 @@ public class AllTests
     [Fact]
     public void Test_Default_Bounds()
     {
-        var actual = PrintNumbersLib.PrintNumbers.All().ToArray();
+        var actual = PrintNumbers.All().ToArray();
         Assert.Equal(100, actual.Length);
     }
 
@@ -14,7 +14,7 @@ public class AllTests
     [InlineData(1000, 1000)]
     public void Test_Bounds(int upperBound, int expected)
     {
-        var actual = PrintNumbersLib.PrintNumbers.All(upperBound).ToArray();
+        var actual = PrintNumbers.All(upperBound).ToArray();
         Assert.Equal(expected, actual.Length);
     }
 
@@ -22,7 +22,7 @@ public class AllTests
     public void Test_First_Fifteen()
     {
         var expected = new[] { "1", "2", "Ryan", "4", "Riley", "Ryan", "7", "8", "Ryan", "Riley", "11", "Ryan", "13", "14", "RyanRiley" };
-        var actual = PrintNumbersLib.PrintNumbers.All(15).ToArray();
+        var actual = PrintNumbers.All(15).ToArray();
         Assert.Equal(expected, actual);
     }
 }
