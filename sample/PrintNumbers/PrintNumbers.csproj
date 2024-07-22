@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\PrintNumbersLib\PrintNumbersLib.csproj" />
+    <ProjectReference Include="..\..\src\PrintNumbersLib\PrintNumbersLib.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

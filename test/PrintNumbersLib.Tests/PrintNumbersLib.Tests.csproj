@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrintNumbersLib\PrintNumbersLib.csproj" />
+    <ProjectReference Include="..\..\src\PrintNumbersLib\PrintNumbersLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

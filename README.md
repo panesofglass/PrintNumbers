@@ -16,3 +16,12 @@
 | 10 | Number should be tested for even divisibility | 3 |
 | 11 | Order of passed pairs should be used to determine precedence | 3 |
 
+## Build and Run
+
+```powershell
+dotnet build
+dotnet test
+# Specify -- $upperBound to print something other than 100 numbers
+dotnet run --project sample\PrintNumbers [-- $upperBound]
+```
+
