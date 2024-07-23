@@ -19,10 +19,74 @@ public class FormatSequenceTests
     }
 
     [Fact]
-    public void Test_First_Fifteen()
+    public void Test_First_Fifteen_With_Default_Rules()
     {
         var expected = new[] { "1", "2", "Ryan", "4", "Riley", "Ryan", "7", "8", "Ryan", "Riley", "11", "Ryan", "13", "14", "RyanRiley" };
         var actual = PrintNumbers.FormatSequence(15).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_First_Fifteen_With_Empty_Rules()
+    {
+        var expected = Enumerable.Range(1, 15).Select(n => n.ToString()).ToArray();
+        var rules = new Dictionary<int, string>();
+        var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_First_Fifteen_With_Custom_Rules_2_Buddy_7_Holly()
+    {
+        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "Holly", "Buddy", "9", "Buddy", "11", "Buddy", "13", "Buddy", "15" };
+        var rules = new Dictionary<int, string>
+        {
+            { 2, "Buddy" },
+            { 7, "Holly" },
+        };
+        var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_First_Fifteen_With_Custom_Rules_7_Holly_2_Buddy()
+    {
+        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "Holly", "Buddy", "9", "Buddy", "11", "Buddy", "13", "Holly", "15" };
+        var rules = new Dictionary<int, string>
+        {
+            { 7, "Holly" },
+            { 2, "Buddy" },
+        };
+        var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_First_Fifteen_With_Custom_Rules_2_Buddy_4_Holly_Hides_4_Holly()
+    {
+        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "7", "Buddy", "9", "Buddy", "11", "Buddy", "13", "Buddy", "15" };
+        var rules = new Dictionary<int, string>
+        {
+            { 2, "Buddy" },
+            { 4, "Holly" },
+        };
+        var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_Can_Iterate_To_Int16_MaxValue()
+    {
+        var expected = short.MaxValue;
+        var actual = PrintNumbers.FormatSequence(short.MaxValue).Count();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "This can take a really long time to run; uncomment to run test")]
+    public void Test_Can_Iterate_To_Int32_MaxValue()
+    {
+        var expected = int.MaxValue;
+        var actual = PrintNumbers.FormatSequence(int.MaxValue).Count();
         Assert.Equal(expected, actual);
     }
 }

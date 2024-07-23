@@ -6,7 +6,7 @@
         {
             { 15, "RyanRiley" },
             { 3, "Ryan" },
-            { 5, "Riley" }
+            { 5, "Riley" },
         };
 
         /// <summary>
@@ -28,7 +28,7 @@
         /// <param name="number">The number to format.</param>
         /// <param name="rules">The ordered formatting rules to apply.</param>
         /// <returns>The formatted number.</returns>
-        internal static string Format(int number, IReadOnlyDictionary<int, string> rules)
+        internal static string Format(int number, IReadOnlyDictionary<int, string>? rules = null)
         {
             foreach (var (divisor, name) in rules)
             {
