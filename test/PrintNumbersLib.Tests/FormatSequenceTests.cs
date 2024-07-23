@@ -26,3 +26,4 @@ public class FormatSequenceTests
         Assert.Equal(expected, actual);
     }
 }
+

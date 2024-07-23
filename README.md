@@ -29,9 +29,10 @@ dotnet run --project sample\PrintNumbers [-- $upperBound]
 
 The library should expose a single, public method that accepts an optional `upperBound` parameter and an ordered list of rules, which could also be optional.
 The requirement to retain input order suggests a data structure that retains the original order of items.
-Any of `(TDivisor, TName)[]`, `List<(TDivisor, TName)>`,  or `SortedDictionary<TDivisor, TName>` would work. `TDivisor` and `TName` could be swapped.
-I've decided to go with `SortedDictionary<TDivisor, TName>`, as that will allow easy iteration and retain the proper order.
-NOTE: an `IReadOnlyDictionary<TDivisor, TName>` might be advisable to ensure the values don't change, but that wouldn't guarantee the sort order.
+Any of `(TDivisor, TName)[]`, `List<(TDivisor, TName)>`,  or `OrderedDictionary` would work, though the latter would require additional work.
+An `IReadOnlyDictionary<TDivisor, TName>` would clearly communicate and ensure the dictionary was not modified but would not guarantee the order.
+For this exercise, I'm choosing to go with the clearer communication over guaranteeing order, which should be retained while executing.
+This should leave guarantees about the order of rules to the caller.
 
 The iteration uses `int`, or `Int32`, which would allow an upper bound of a little more than 2 billion values.
 This could be doubled with a `UInt32` since we don't need negative numbers.

@@ -5,23 +5,22 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{218DAFB8-282E-420D-A932-3DD53F2833D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintNumbersLib", "src\PrintNumbersLib\PrintNumbersLib.csproj", "{C15782FC-314F-4552-A879-062C1B626607}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintNumbersLib", "src\PrintNumbersLib\PrintNumbersLib.csproj", "{C15782FC-314F-4552-A879-062C1B626607}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1D59B540-552F-4978-B0FE-D14936D453F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintNumbersLib.Tests", "test\PrintNumbersLib.Tests\PrintNumbersLib.Tests.csproj", "{0AF61FC2-6973-4B44-979F-1D5ACABC1BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintNumbersLib.Tests", "test\PrintNumbersLib.Tests\PrintNumbersLib.Tests.csproj", "{0AF61FC2-6973-4B44-979F-1D5ACABC1BBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{0044CA2A-AF36-499B-95F3-C669DC16008F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintNumbers", "sample\PrintNumbers\PrintNumbers.csproj", "{7CE2EF24-2270-4E96-B184-4F9EAE3A595D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintNumbers", "sample\PrintNumbers\PrintNumbers.csproj", "{7CE2EF24-2270-4E96-B184-4F9EAE3A595D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5C69DD00-753D-4E82-9593-ACEBD450B6BE}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {653FE235-5DBC-4E41-B6E3-9ACE6CF5846E}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -68,9 +67,15 @@ Global
 		{7CE2EF24-2270-4E96-B184-4F9EAE3A595D}.Release|x86.ActiveCfg = Release|Any CPU
 		{7CE2EF24-2270-4E96-B184-4F9EAE3A595D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C15782FC-314F-4552-A879-062C1B626607} = {218DAFB8-282E-420D-A932-3DD53F2833D4}
 		{0AF61FC2-6973-4B44-979F-1D5ACABC1BBC} = {1D59B540-552F-4978-B0FE-D14936D453F4}
 		{7CE2EF24-2270-4E96-B184-4F9EAE3A595D} = {0044CA2A-AF36-499B-95F3-C669DC16008F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {653FE235-5DBC-4E41-B6E3-9ACE6CF5846E}
 	EndGlobalSection
 EndGlobal

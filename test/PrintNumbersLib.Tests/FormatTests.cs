@@ -11,7 +11,7 @@ namespace PrintNumbersLib.Tests
         [InlineData(1010101, "1010101")]
         public void Test_Format(int number, string expected)
         {
-            var actual = PrintNumbers.Format(number);
+            var actual = PrintNumbers.Format(number, PrintNumbers.defaultRules);
             Assert.Equal(expected, actual);
         }
     }
