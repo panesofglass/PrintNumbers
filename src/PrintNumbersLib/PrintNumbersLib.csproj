@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>PrintNumbersLib</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Ryan Riley</Authors>
     <Company>Panes of Glass</Company>
     <PackageDescription>Generate a sequence of formatted numbers from 1 to a specified upper bound provided a set of formatting rules.</PackageDescription>
