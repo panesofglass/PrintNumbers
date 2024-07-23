@@ -15,6 +15,7 @@
 | 9  | Allow caller to pass an arbitrary number (0-n) of number/word pairs | 3 |
 | 10 | Number should be tested for even divisibility | 3 |
 | 11 | Order of passed pairs should be used to determine precedence | 3 |
+| 12 | Rules should compose, e.g. rules for 2 and 3 should both apply for the 6th item | 3 |
 
 ## Build and Run
 

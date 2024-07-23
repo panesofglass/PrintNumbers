@@ -38,7 +38,7 @@ public class FormatSequenceTests
     [Fact]
     public void Test_First_Fifteen_With_Custom_Rules_2_Buddy_7_Holly()
     {
-        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "Holly", "Buddy", "9", "Buddy", "11", "Buddy", "13", "Buddy", "15" };
+        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "Holly", "Buddy", "9", "Buddy", "11", "Buddy", "13", "BuddyHolly", "15" };
         var rules = new Dictionary<int, string>
         {
             { 2, "Buddy" },
@@ -51,7 +51,7 @@ public class FormatSequenceTests
     [Fact]
     public void Test_First_Fifteen_With_Custom_Rules_7_Holly_2_Buddy()
     {
-        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "Holly", "Buddy", "9", "Buddy", "11", "Buddy", "13", "Holly", "15" };
+        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "Holly", "Buddy", "9", "Buddy", "11", "Buddy", "13", "HollyBuddy", "15" };
         var rules = new Dictionary<int, string>
         {
             { 7, "Holly" },
@@ -62,13 +62,42 @@ public class FormatSequenceTests
     }
 
     [Fact]
-    public void Test_First_Fifteen_With_Custom_Rules_2_Buddy_4_Holly_Hides_4_Holly()
+    public void Test_First_Fifteen_With_Custom_Rules_2_Buddy_4_Holly()
     {
-        var expected = new[] { "1", "Buddy", "3", "Buddy", "5", "Buddy", "7", "Buddy", "9", "Buddy", "11", "Buddy", "13", "Buddy", "15" };
+        var expected = new[] { "1", "Buddy", "3", "BuddyHolly", "5", "Buddy", "7", "BuddyHolly", "9", "Buddy", "11", "BuddyHolly", "13", "Buddy", "15" };
         var rules = new Dictionary<int, string>
         {
             { 2, "Buddy" },
             { 4, "Holly" },
+        };
+        var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_First_Fifteen_With_Custom_Rules_2_Buddy_4_Holly_7_Peggy()
+    {
+        var expected = new[] { "1", "Buddy", "3", "BuddyHolly", "5", "Buddy", "Peggy", "BuddyHolly", "9", "Buddy", "11", "BuddyHolly", "13", "BuddyPeggy", "15" };
+        var rules = new Dictionary<int, string>
+        {
+            { 2, "Buddy" },
+            { 4, "Holly" },
+            { 7, "Peggy" },
+        };
+        var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_First_Twenty_With_Custom_Rules_2_Buddy_3_Holly_5_Peggy_7_Sue()
+    {
+        var expected = new[] { "1", "Buddy", "Holly", "Buddy", "Peggy", "BuddyHolly", "Sue", "Buddy", "Holly", "BuddyPeggy", "11", "BuddyHolly", "13", "BuddySue", "HollyPeggy" };
+        var rules = new Dictionary<int, string>
+        {
+            { 2, "Buddy" },
+            { 3, "Holly" },
+            { 5, "Peggy" },
+            { 7, "Sue" },
         };
         var actual = PrintNumbers.FormatSequence(15, rules).ToArray();
         Assert.Equal(expected, actual);

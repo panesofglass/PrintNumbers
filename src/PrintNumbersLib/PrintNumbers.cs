@@ -2,9 +2,8 @@
 {
     public static class PrintNumbers
     {
-        internal static readonly IReadOnlyDictionary<int, string> defaultRules = new Dictionary<int, string>()
+        internal static readonly IReadOnlyDictionary<int, string> DefaultRules = new Dictionary<int, string>()
         {
-            { 15, "RyanRiley" },
             { 3, "Ryan" },
             { 5, "Riley" },
         };
@@ -18,7 +17,7 @@
         public static IEnumerable<string> FormatSequence(int upperBound = 100, IReadOnlyDictionary<int, string>? rules = null) =>
             Enumerable
                 .Range(1, upperBound)
-                .Select(num => Format(num, rules ?? defaultRules));
+                .Select(num => Format(num, rules ?? DefaultRules));
 
         /// <summary>
         /// Formats an individual integer value into a string representation.
@@ -28,14 +27,18 @@
         /// <param name="number">The number to format.</param>
         /// <param name="rules">The ordered formatting rules to apply.</param>
         /// <returns>The formatted number.</returns>
-        internal static string Format(int number, IReadOnlyDictionary<int, string>? rules = null)
+        internal static string Format(int number, IReadOnlyDictionary<int, string> rules)
         {
+            var result = "";
             foreach (var (divisor, name) in rules)
             {
-                if (number % divisor == 0) return name;
+                if (number % divisor == 0)
+                {
+                    result += name ?? "";
+                }
             }
 
-            return number.ToString();
+            return result.Length > 0 ? result : number.ToString();
         }
     }
 }
